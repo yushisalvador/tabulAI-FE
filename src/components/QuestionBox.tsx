@@ -14,9 +14,8 @@ export default function QuestionBox() {
   const [code, setCode] = useState(null);
   const [answer, setAnswer] = useState(null);
 
-  const askQuestion = async (e: any) => {
+  const askQuestion = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("question", question);
     const res = await axios.get(
       `https://pandai-2.cathalweakliam.repl.co/ask?question=${question}`
     );
@@ -27,7 +26,7 @@ export default function QuestionBox() {
   return (
     <Flex direction="column" justify="center" align="center" mt="10">
       <Box>
-        <form onSubmit={askQuestion}>
+        <form onSubmit={(e) => askQuestion(e)}>
           <FormControl>
             <FormLabel> Question</FormLabel>
             <Input
