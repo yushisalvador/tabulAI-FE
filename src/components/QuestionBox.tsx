@@ -16,9 +16,7 @@ import {
 
 export default function QuestionBox() {
   const [question, setQuestion] = useState("");
-  const [code, setCode] = useState(null);
   const [answers, setAnswers] = useState<Answers[]>([]);
-  const [tableStr, setTableStr] = useState<any>(null);
 
   interface Answers {
     code: string;
