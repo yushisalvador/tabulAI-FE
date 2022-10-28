@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Results from "./Results";
 import { sanitize } from "dompurify";
+import { Answers } from "../../types";
 
 import {
   Box,
@@ -12,18 +14,11 @@ import {
   Text,
   Center,
 } from "@chakra-ui/react";
-// import Answers from "./Answers";
 
 export default function QuestionBox() {
   const [question, setQuestion] = useState("");
   const [answers, setAnswers] = useState<Answers[]>([]);
 
-  interface Answers {
-    code: string;
-    output: string;
-    question: string;
-    table_html: any;
-  }
   const askQuestion = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const res = await axios.get(
@@ -52,10 +47,7 @@ export default function QuestionBox() {
                 />
               </Box>
             ) : (
-              <Box>
-                <Text align="center">{a.question}</Text>
-                <Text align="center"> {a.output}</Text>
-              </Box>
+              <Results result={a} />
             )
           )}
         </Box>
