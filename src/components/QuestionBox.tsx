@@ -31,16 +31,6 @@ export default function QuestionBox() {
     const res = await axios.get(
       `https://pandai-2.cathalweakliam.repl.co/ask?question=${question}`
     );
-    // if (res.data.table_html) {
-    //   const withTableObj = {
-    //     output: res.data.output,
-    //     code: res.data.code,
-    //     question: res.data.question,
-    //     table_html: res.data.table_html,
-    //   };
-    //   console.log("has table");
-    //   setAnswers([...answers, withTableObj]);
-    // }
     const answerobj = {
       output: res.data.output,
       code: res.data.code,
