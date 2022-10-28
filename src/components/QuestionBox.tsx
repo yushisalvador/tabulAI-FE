@@ -58,15 +58,15 @@ export default function QuestionBox() {
           {answers.map((a, index) =>
             a.table_html ? (
               <Box key={index}>
-                <Text>{a.question}</Text>
+                <Text align="center">{a.question}</Text>
                 <div
                   dangerouslySetInnerHTML={{ __html: sanitize(a.table_html) }}
                 />
               </Box>
             ) : (
               <Box>
-                <Text>{a.question}</Text>
-                <Text>{a.output}</Text>
+                <Text align="center">{a.question}</Text>
+                <Text align="center"> {a.output}</Text>
               </Box>
             )
           )}
